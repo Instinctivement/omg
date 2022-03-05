@@ -46,11 +46,30 @@
             </li>
           </ul>
           <form class="d-flex">
-            <button class="btn btn-info" type="submit"><a href="<?= site_url('login,       /index/'); ?>/">Connexion</a></button>
-            <div class="m-2"></div>
-            <button class="btn btn-outline-success" type="submit">Inscription</button>
+            <ul class="nav navbar-nav navbar-right">
+            <?php if($this->auth_user->is_connected) : ?>
+              <?php if($this->auth_user->is_connected) : ?>
+                
+                <p class="navbar-text navbar-right"><a href="<?= site_url('users/signup/profil'); ?>">Deconnexion</a></p>
+
+
+<p class="navbar-text mx-2 navbar-right">|</p>
+
+            <p class="navbar-text navbar-right">Bienvenue <strong><?= $this->session->auth_user['user_name'] ?></strong></p>
+            <p class="navbar-text mx-2 navbar-right">|</p>
+          <?php endif; ?>
+              <p class="navbar-text navbar-right"><a href="<?= site_url('app/deconnexion'); ?>">Deconnexion</a></p>
+
+              
+            <?php else: ?>
+              <li><button class="btn btn-info" type="submit"><a href="<?= site_url('login/index'); ?>">Connexion</a></button></li>
+            <?php endif; ?>
+          </ul>
+          
           </form>
         </div>
       </div>
     </nav>
   </header>
+
+

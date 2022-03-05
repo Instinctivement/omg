@@ -15,8 +15,7 @@
     <div class="row justify-content-center mt-5 py-4 mx-0">
       <div class="col-sm-4 mt-4">
         <div class="card card-body shadow-sm" style="height: 510px; margin-top: auto; margin-bottom: auto; width: 400px;background-color: rgba(0,0,0,0.5) !important;">
-          <form class="form-signin  my-2 ml-auto mr-auto py-2   col-10"
-              method="post" action="index.php?page=<?= base64_encode('controllers/users/login-controller')?>" style="text-align: center;">
+          <form class="my-2 ml-auto mr-auto py-2   col-10" method="post" action="<?= site_url('app/connexion'); ?>" style="text-align: center;">
                 <div class="image row justify-content-center">
                   <span class="login-image-container bg-white">
                   <i class="fas fa-user-circle"></i>
@@ -40,11 +39,16 @@
 
                 <button class="btn btn-primary form-control" type="submit" name="submit_login"><i class='fas fa-paper-plane'>ENVOYER</i></button>
                 <div class="row ml-2 my-3 text-white">
-                  <a href="index.php?page=<?= base64_encode('views/users/inscription')?>&inscript" class="btn-link text-white text-center">Créer un compte ?</a>
+                  <a href="<?= site_url('SignUp/index'); ?>" class="btn-link text-white text-center">Créer un compte ?</a>
                 </div>
-                <div class="row ml-2 my-3 text-white">
-                  <a href="./" class="btn-link text-white text-center">Accueil</a>
-                </div>
+                <?php if(! empty( $login_error)) : ?>
+      <div class="form-group">
+        <div class="col-md-offset-2 col-md-10 has-error">
+          <span class="help-block"><?= $login_error; ?></span>
+        </div>
+      </div>
+      <!-- (...) -->
+    <?php endif; ?>
 
                 <p class="mt-3 mb-3 text-white">&copy; instinctivement</p>
           </form>
