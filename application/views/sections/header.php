@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 
 <head>
-  <title>OmgBlog | OpenxTech</title>
+  <title><?= $title ?></title>
   <link rel="icon" type="image/x-icon" href="public/images/favicon.ico" />
   <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $this->config->item('charset'); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,9 +23,9 @@
     <!-- Fixed navbar -->
 
 
-    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-dark fixed-top bg-dark mb-5">
       <div class="container">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">OmgBlog</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
           aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -33,17 +33,20 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="<?= site_url('#'); ?>">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Article</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link" href="<?= site_url('contact/index/'); ?>">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= site_url('about/index/'); ?>">A propos</a>
             </li>
           </ul>
           <form class="d-flex">
-            <button class="btn btn-outline-success" type="submit">Connexion</button>
+            <button class="btn btn-info" type="submit"><a href="<?= site_url('login,       /index/'); ?>/">Connexion</a></button>
             <div class="m-2"></div>
             <button class="btn btn-outline-success" type="submit">Inscription</button>
           </form>
