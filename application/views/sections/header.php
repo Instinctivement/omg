@@ -47,29 +47,33 @@
           </ul>
           <form class="d-flex">
             <ul class="nav navbar-nav navbar-right">
-            <?php if($this->auth_user->is_connected) : ?>
               <?php if($this->auth_user->is_connected) : ?>
-                
-                <p class="navbar-text navbar-right"><a href="<?= site_url('users/signup/profil'); ?>">Deconnexion</a></p>
+                <div class="dropdown">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    Bienvenue
+                      <strong><?= $this->session->auth_user['user_name'] ?></strong>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><h5 class="dropdown-header">Utilisateur</h5></li>
+                    <li><a class="dropdown-item" href="<?= site_url('user/index'); ?>"><i class="bi bi-person-fill"></i> Profile</a></li>
+                    <li><h5 class="dropdown-header">Session</h5></li>
+                    <li><a class="dropdown-item" href="<?= site_url('app/deconnexion'); ?>"><i class="bi bi-box-arrow-in-right"></i> Deconnexion</a></li>
+                  </ul>
+                </div>
+              <?php else: ?>
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="<?= site_url('login/index'); ?>">
+                    <i class="bi bi-door-open-fill"></i> 
+                    Connexion
+                  </a>
+                </li>
+              </ul>
+              <?php endif; ?>
+            </ul>
 
-
-<p class="navbar-text mx-2 navbar-right">|</p>
-
-            <p class="navbar-text navbar-right">Bienvenue <strong><?= $this->session->auth_user['user_name'] ?></strong></p>
-            <p class="navbar-text mx-2 navbar-right">|</p>
-          <?php endif; ?>
-              <p class="navbar-text navbar-right"><a href="<?= site_url('app/deconnexion'); ?>">Deconnexion</a></p>
-
-              
-            <?php else: ?>
-              <li><button class="btn btn-info" type="submit"><a href="<?= site_url('login/index'); ?>">Connexion</a></button></li>
-            <?php endif; ?>
-          </ul>
-          
           </form>
         </div>
       </div>
     </nav>
   </header>
-
-

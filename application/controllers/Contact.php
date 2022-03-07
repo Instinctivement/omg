@@ -2,7 +2,7 @@
 
 class Contact extends CI_Controller {
 
-  const NB_MESSAGE_PAR_PAGE = 5;
+  const NB_MESSAGE_PAR_PAGE = 6;
 	
 	public function __construct()
 	{
@@ -58,7 +58,7 @@ public function voir($g_nb_message = 1)
 	}
 	
 	//	Mise en place de la pagination
-	$this->pagination->initialize(array('base_url' => base_url() . 'index.php/omg/voir/',
+	$this->pagination->initialize(array('base_url' => base_url() . 'index.php/contact/voir/',
 					    'total_rows' => $nb_message_total,
 					    'per_page' => self::NB_MESSAGE_PAR_PAGE)); 
 	
@@ -106,18 +106,18 @@ public function ecrire()
                  $this->input->post('message'),);
 		
 		//	Affichage de la confirmation
-    $data["title"] = "Contact";
+    	$data["title"] = "Contact";
 		 $this->load->view('sections/header', $data);
-  $this->load->view('sections/contact/confirm');
-  $this->load->view('sections/footer');
+		$this->load->view('sections/contact/confirm');
+		$this->load->view('sections/footer');
 
 	}
 	else
 	{
-    $data["title"] = "Ajout | Contact";
-    $this->load->view('sections/header', $data);
-    $this->load->view('sections/fcontact', $data);
-    $this->load->view('sections/footer');
+		$data["title"] = "Ajout | Contact";
+		$this->load->view('sections/header', $data);
+		$this->load->view('sections/fcontact', $data);
+		$this->load->view('sections/footer');
   
 	}
 }
